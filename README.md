@@ -1,4 +1,4 @@
-# Get info about a random beer
+# Get info about Covid 19 in India
 
 A platform which allows you to get information about a random covid19indiatracker beer.
 
@@ -17,11 +17,6 @@ sensor:
 key | description
 :--- | :---
 **platform (Required)** | The platform name.
-
-## Sample overview
-
-![Sample overview](overview.png)
-
 
 ***
 
