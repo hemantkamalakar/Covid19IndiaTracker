@@ -1,0 +1,10 @@
+{
+    "domain": "covid19indiatracker",
+    "name": "covid19indiatracker",
+    "documentation": "https://github.com/custom-components/covid19indiatracker",
+    "dependencies": [],
+    "codeowners": ["@hemantkamalakar"],
+    "requirements": [
+      "integrationhelper==0.1.0"
+    ]
+  }
