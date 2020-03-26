@@ -64,4 +64,4 @@ class Covid19IndiaTrackerSensor(Entity):
 
     @property
     def device_state_attributes(self):
-        return {"Confirmed cases in India": self._confirmed,"Confirmed cases in Maharashtra:": self._maharashtra_confirmed, "Total Deaths": self._totaldeaths}
+        return {"Confirmed cases in India": self._confirmed,"Confirmed cases in Maharashtra": self._maharashtra_confirmed, "Total Deaths": self._totaldeaths, "Last updated": self.last_updated}
