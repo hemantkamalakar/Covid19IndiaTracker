@@ -42,6 +42,8 @@ class Covid19IndiaTrackerSensor(Entity):
         self._confirmed = rbd['statewise'][0]['confirmed']
         self._maharashtra_confirmed = rbd['statewise'][1]['confirmed']
         self._totaldeaths = rbd['statewise'][0]['deaths']
+        self._delta_confirmed = rbd['statewise'][0]['delta']['confirmed']
+        self._delta_deaths = rbd['statewise'][0]['delta']['deaths']
         self._last_updated = rbd['statewise'][0]['lastupdatedtime']
 
     @property
@@ -64,4 +66,5 @@ class Covid19IndiaTrackerSensor(Entity):
 
     @property
     def device_state_attributes(self):
-        return {"Confirmed cases in India": self._confirmed,"Confirmed cases in Maharashtra": self._maharashtra_confirmed, "Total Deaths": self._totaldeaths, "Last updated": self.last_updated}
+        return {"India": self._confirmed, "India_delta": self._delta_confirmed, "Maharashtra": self._maharashtra_confirmed, "Total_Deaths": self._totaldeaths, "total_deaths_delta": self._delta_deaths, "Last updated": self.last_updated}
+        
