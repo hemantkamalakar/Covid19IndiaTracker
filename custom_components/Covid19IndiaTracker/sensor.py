@@ -59,7 +59,7 @@ class Covid19IndiaTrackerSensor(Entity):
     @property
     def unit_of_measurement(self):
         """Returns the unit of measurement."""
-        return 'int'
+        return 'cases'
 
     @property
     def state(self):
