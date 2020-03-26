@@ -1,6 +1,6 @@
-# Get info about Covid 19 in India
+# Get info about Covid-19 in India
 
-A platform which allows you to get information about a random covid19indiatracker beer.
+A platform which allows you to get information about Covid-19 in India.
 
 To get started put all the files from`/custom_components/covid19indiatracker/` here:
 `<config directory>/custom_components/covid19indiatracker/`
