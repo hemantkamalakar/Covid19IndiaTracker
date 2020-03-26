@@ -1,7 +1,7 @@
 """
-A platform which allows you to get information about Corona status in India.
+A platform which allows you to get information about Covid-19 status in India.
 For more details about this component, please refer to the documentation at
-https://github.com/custom-components/Covid19IndiaTracker
+https://github.com/hemantkamalakar/Covid19IndiaTracker
 """
 # pylint: disable=unused-argument,missing-docstring
 from datetime import timedelta
@@ -12,8 +12,8 @@ from integrationhelper import WebClient, Logger
 from integrationhelper.const import CC_STARTUP
 
 URL = "https://api.covid19india.org/data.json"
-ISSUE_LINK = "https://github.com/custom-components/Covid19IndiaTracker/issues/"
-SCAN_INTERVAL = timedelta(seconds=120)
+ISSUE_LINK = "https://github.com/hemantkamalakar/Covid19IndiaTracker/issues/"
+SCAN_INTERVAL = timedelta(seconds=300)
 
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
@@ -29,21 +29,30 @@ class Covid19IndiaTrackerSensor(Entity):
         self._confirmed = None
         self._maharashtra_confirmed = None
         self._totaldeaths = None
+        self._last_updated = None
         self.webclient = webclient
 
     async def async_update(self):
         Covid19IndiaTracker = await self.webclient.async_get_json(
             URL, {"Accept": "application/json"}
         )
-        rbd = Covid19IndiaTracker[0]
-        self._state = rbd.statewise[0].confirmed #rbd["tagline"]
-        self._confirmed = rbd.statewise[0].confirmed #rbd["tagline"]
-        self._maharashtra_confirmed = rbd.statewise[1].confirmed #rbd["tagline"]
-        self._totaldeaths = rbd.statewise[0].deaths
+        rbd = Covid19IndiaTracker
+        print(rbd['statewise'][0])
+        self._state = rbd['statewise'][0]['confirmed']
+        self._confirmed = rbd['statewise'][0]['confirmed']
+        self._maharashtra_confirmed = rbd['statewise'][1]['confirmed']
+        self._totaldeaths = rbd['statewise'][0]['deaths']
+        self._last_updated = rbd['statewise'][0]['lastupdatedtime']
 
     @property
     def name(self):
         return "INDIA COVID-19 TRACKER"
+
+    @property
+    def last_updated(self):
+        """Returns date when it was last updated."""
+        if isinstance(self._last_updated, int):
+            return self._last_updated
 
     @property
     def state(self):
@@ -55,4 +64,4 @@ class Covid19IndiaTrackerSensor(Entity):
 
     @property
     def device_state_attributes(self):
-        return {"Confirmed cases": self._confirmed, "Deaths": self._totaldeaths}
+        return {"Confirmed cases in India": self._confirmed,"Confirmed cases in Maharashtra:": self._maharashtra_confirmed, "Total Deaths": self._totaldeaths}
