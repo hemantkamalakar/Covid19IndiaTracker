@@ -12,6 +12,13 @@ sensor:
   platform: covid19indiatracker
 ```
 
+## Screenshots
+
+Screenshot
+
+<img src="https://github.com/hemantkamalakar/Covid19IndiaTracker/blob/master/screenshot.png" alt="screenshot">
+
+
 **Data source**
 
 [COVID19INDIA](<https://github.com/covid19india/>)
