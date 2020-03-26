@@ -11,12 +11,3 @@ To get started put all the files from`/custom_components/covid19indiatracker/` h
 sensor:
   platform: covid19indiatracker
 ```
-
-**Configuration variables:**
-
-key | description
-:--- | :---
-**platform (Required)** | The platform name.
-
-***
-
