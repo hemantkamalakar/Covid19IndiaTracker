@@ -31,7 +31,6 @@ class Covid19IndiaTrackerSensor(Entity):
         self._india_total_recovered = None
         self._india_today_confirmed = None
         self._india_today_deaths = None
-
         self._maharashtra_confirmed = None
         self._maharashtra_total_deaths = None
         self._maharashtra_total_recovered = None
@@ -50,7 +49,6 @@ class Covid19IndiaTrackerSensor(Entity):
                 self._state = state['confirmed']
                 self._india_confirmed = state['confirmed']
                 self._india_total_deaths = state['deaths']
-                self._india_total_deaths = state['deaths']
                 self._india_total_recovered = state['recovered']
                 self._india_today_confirmed = state['delta']['confirmed']
                 self._india_today_deaths = state['delta']['deaths']
@@ -63,14 +61,6 @@ class Covid19IndiaTrackerSensor(Entity):
                 self._maharashtra_today_confirmed = state['delta']['confirmed']
                 self._maharashtra_today_deaths = state['delta']['deaths']
                 print(state)
-
-        # self._state = rbd['statewise'][0]['confirmed']
-        # self._confirmed = rbd['statewise'][0]['confirmed']
-        # self._maharashtra_confirmed = rbd['statewise'][1]['confirmed']
-        # self._totaldeaths = rbd['statewise'][0]['deaths']
-        # self._delta_confirmed = rbd['statewise'][0]['delta']['confirmed']
-        # self._delta_deaths = rbd['statewise'][0]['delta']['deaths']
-        # self._last_updated = rbd['statewise'][0]['lastupdatedtime']
 
     @property
     def name(self):
