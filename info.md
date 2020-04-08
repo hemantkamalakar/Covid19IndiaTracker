@@ -1,16 +1,22 @@
+# Get info about Covid-19 cases in India
+
+A Home assistant custom component to get information about Covid-19 cases in India.
+
+To get started put all the files from`/custom_components/covid19indiatracker/` here:
+`<config directory>/custom_components/covid19indiatracker/`
+
 **Example configuration.yaml:**
 
 ```yaml
 sensor:
-  platform: Covid19IndiaTracker
+  platform: covid19indiatracker
 ```
 
-**Configuration variables:**  
-  
-key | description  
-:--- | :---  
-**platform (Required)** | The platform name.  
-  
-## Sample overview
+## Screenshots
 
-![Sample overview](https://github.com/custom-components/Covid19IndiaTracker/raw/master/overview.png)
+<img src="https://github.com/hemantkamalakar/Covid19IndiaTracker/blob/master/screenshot.png" alt="screenshot">
+
+
+**Data source**
+
+[COVID19INDIA](<https://github.com/covid19india/>)
