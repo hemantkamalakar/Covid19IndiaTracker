@@ -1,5 +1,5 @@
 """
-A platform which allows you to get information about Covid-19 status in India.
+A platform which allows you to get information about Covid-19 cases status in India.
 For more details about this component, please refer to the documentation at
 https://github.com/hemantkamalakar/Covid19IndiaTracker
 """
@@ -50,12 +50,10 @@ class Covid19IndiaTrackerSensor(Entity):
                 self._india_confirmed = state['confirmed']
                 self._india_total_deaths = state['deaths']
                 self._india_total_recovered = state['recovered']
-                # self._india_today_confirmed = state['delta']['confirmed']
-                # self._india_today_deaths = state['delta']['deaths']
                 self._india_today_confirmed = state['deltaconfirmed']
                 self._india_today_deaths = state['deltadeaths']
                 self._last_updated = state['lastupdatedtime']
-                print(state)
+                # print(state)
             elif (state['state'] == 'Maharashtra'):
                 self._maharashtra_confirmed = state['confirmed']
                 self._maharashtra_total_deaths = state['deaths']
@@ -64,7 +62,7 @@ class Covid19IndiaTrackerSensor(Entity):
                 # self._maharashtra_today_deaths = state['delta']['deaths']
                 self._maharashtra_today_confirmed = state['deltaconfirmed']
                 self._maharashtra_today_deaths = state['deltadeaths']
-                print(state)
+                # print(state)
 
     @property
     def name(self):
